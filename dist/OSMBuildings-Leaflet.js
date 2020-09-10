@@ -679,8 +679,13 @@
         this.update();
       },
       update: function () {
-        function b(a) {
-          g.addRenderItems(a);
+      function b(a) {
+          if (typeof uploadedJson != 'undefined') {
+            a.features.push(uploadedJson.features[0])
+            g.addRenderItems(a)
+          } else {
+            g.addRenderItems(a)
+          }
         }
         this.resetItems();
         if (!(x < G))
